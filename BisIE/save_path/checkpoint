@@ -1,0 +1,2 @@
+model_checkpoint_path: "atrank-63"
+all_model_checkpoint_paths: "atrank-63"
