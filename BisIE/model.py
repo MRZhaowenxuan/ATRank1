@@ -125,8 +125,10 @@ class Model(object):
             self.is_training,
             False)
 
-        u_emb = ltr_emb + rtl_emb
-        self.logits = i_b + tf.reduce_sum(tf.multiply(u_emb, i_emb), 1)
+        # u_emb = ltr_emb + rtl_emb
+        u_emb = tf.concat([ltr_emb, rtl_emb], 1)
+        # self.logits = i_b + tf.reduce_sum(tf.multiply(u_emb, i_emb), 1)
+        self.logits = tf.reduce_sum(u_emb, 1)
 
         # ============== Eval ===============
         self.eval_logits = self.logits

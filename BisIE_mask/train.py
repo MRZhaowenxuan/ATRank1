@@ -8,8 +8,8 @@ from collections import OrderedDict
 import numpy as np
 import tensorflow as tf
 
-from atrank.input import DataInput,DataInputTest
-from atrank.model import Model
+from BisIE_mask.input import DataInput, DataInputTest
+from BisIE_mask.model import Model
 
 random.seed(1234)
 np.random.seed(1234)
@@ -55,7 +55,7 @@ FLAGS = tf.app.flags.FLAGS
 def create_model(sess,config,cate_list):
 
     # print(json.dumps(config,indent=4),flush=True)
-    model = Model(config,cate_list)
+    model = Model(config, cate_list)
 
     print('All global variables:')
     for v in tf.global_variables():
