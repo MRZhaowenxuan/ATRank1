@@ -50,7 +50,7 @@ class DataInput:
                 fut_t[k][l] = t[6][l]
             k += 1
 
-        return self.i, (u, i, y, hist_t, hist_i, sl_h, fut_i, fut_t, sl_f)
+        return self.i, (u, i, y, hist_i, hist_t, sl_h, fut_i, fut_t, sl_f)
 
 
 class DataInputTest:
@@ -109,4 +109,4 @@ class DataInputTest:
                 fut_t[k][l] = t[5][l]
             k += 1
 
-        return self.i, (u, i, j, hist_t, hist_i, sl_h, fut_i, fut_t, sl_f)
+        return self.i, (u, i, j, hist_i, hist_t, sl_h, fut_i, fut_t, sl_f)

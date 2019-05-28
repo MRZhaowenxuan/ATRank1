@@ -261,7 +261,7 @@ class Model(object):
         return res1, res2, att_1, stt_1, att_2, stt_1
 
     def save(self, sess):
-        checkpoint_path = os.path.join(self.config['model_dir'], 'atrank')
+        checkpoint_path = os.path.join(self.config['model_dir'], 'bisie')
         #print(self.global_step)
         saver = tf.train.Saver()
         save_path = saver.save(

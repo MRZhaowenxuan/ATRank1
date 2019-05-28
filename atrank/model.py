@@ -28,14 +28,10 @@ class Model(object):
         self.y = tf.placeholder(tf.float32, [None, ])
 
         # [B, T] user's history item id
-        # self.hist_i = tf.placeholder(tf.int32, [None, None])
-        # self.fut_i = tf.placeholder(tf.int32, [None, None])
-        self.action_i = tf.placeholder(tf.int32, [None, None])
+        self.hist_i = tf.placeholder(tf.int32, [None, None])
 
         # [B, T] user's history item purchase time
-        # self.hist_t = tf.placeholder(tf.int32, [None, None])
-        # self.fut_t = tf.placeholder(tf.int32, [None, None])
-        self.action_t = tf.placeholder(tf.int32, [None, None])
+        self.hist_t = tf.placeholder(tf.int32, [None, None])
 
         # [B] valid length of `hist_i`
         self.sl = tf.placeholder(tf.int32, [None, ])
@@ -63,7 +59,6 @@ class Model(object):
 
         cate_list = tf.convert_to_tensor(cate_list, dtype=tf.int64)
 
-
         #i_emb=(?,128),item_emb_w=(item_count,64),cate_emb_w=(cate_count,64)
         i_emb = tf.concat([
             tf.nn.embedding_lookup(item_emb_w, self.i),
@@ -71,34 +66,30 @@ class Model(object):
         ], 1)
 
         i_b = tf.gather(item_b, self.i)
-
-        # sl = tf.convert_to_tensor(tf.add(self.sl_f, self.sl_h), dtype=tf.int32)
-
-        action_emb = tf.concat([
-            tf.nn.embedding_lookup(item_emb_w, self.action_i),
-            tf.nn.embedding_lookup(cate_emb_w, tf.gather(cate_list, self.action_i)),
+        #(?,?,128)
+        h_emb = tf.concat([
+            tf.nn.embedding_lookup(item_emb_w, self.hist_i),
+            tf.nn.embedding_lookup(cate_emb_w, tf.gather(cate_list, self.hist_i)),
         ], 2)
 
 
         if self.config['concat_time_emb'] == True:
-            t_emb = tf.one_hot(self.action_t, 12, dtype=tf.float32)
-            action_emb = tf.concat([action_emb, t_emb], -1)
-            # 此处代码需要更新Use keras.layers.dense instead.
-            action_emb = tf.layers.dense(action_emb, self.config['hidden_units'])
+            t_emb = tf.one_hot(self.hist_t, 12, dtype=tf.float32)
+            h_emb = tf.concat([h_emb, t_emb], -1)
+            h_emb = tf.layers.dense(h_emb, self.config['hidden_units'])
         else:
-            t_emb = tf.layers.dense(tf.expand_dims(self.action_t, -1),
+            t_emb = tf.layers.dense(tf.expand_dims(self.hist_t, -1),
                                     self.config['hidden_units'],
                                     activation=tf.nn.tanh)
-            action_emb += t_emb
-
+            h_emb += t_emb
 
         num_blocks = self.config['num_blocks']
         num_heads = self.config['num_heads']
         dropout_rate = self.config['dropout']
-        num_units = action_emb.get_shape().as_list()[-1]
+        num_units = h_emb.get_shape().as_list()[-1]
 
-        u_emb = attention_net(
-            action_emb,
+        u_emb, self.att, self.stt = attention_net(
+            h_emb,
             self.sl,
             i_emb,
             num_units,
@@ -109,7 +100,6 @@ class Model(object):
             False)
 
         self.logits = i_b + tf.reduce_sum(tf.multiply(u_emb, i_emb), 1)
-        # self.logits = tf.reduce_sum(u_emb, 1)
 
         # ============== Eval ===============
         self.eval_logits = self.logits
@@ -137,9 +127,9 @@ class Model(object):
         self.train_summary = tf.summary.merge([
             tf.summary.histogram('embedding/1_item_emb', item_emb_w),
             tf.summary.histogram('embedding/2_cate_emb', cate_emb_w),
-            tf.summary.histogram('embedding/3_time_raw', self.action_t),
+            tf.summary.histogram('embedding/3_time_raw', self.hist_t),
             tf.summary.histogram('embedding/3_time_dense', t_emb),
-            tf.summary.histogram('embedding/4_final', action_emb),
+            tf.summary.histogram('embedding/4_final', h_emb),
             tf.summary.histogram('attention_output', u_emb),
             tf.summary.scalar('L2_norm Loss', l2_norm),
             tf.summary.scalar('Training Loss', self.loss),
@@ -174,8 +164,8 @@ class Model(object):
             self.u: uij[0],
             self.i: uij[1],
             self.y: uij[2],
-            self.action_i: uij[3],
-            self.action_t: uij[4],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
             self.sl: uij[5],
             self.lr: l,
             self.is_training: True,
@@ -198,16 +188,16 @@ class Model(object):
         res1 = sess.run(self.eval_logits, feed_dict={
             self.u: uij[0],
             self.i: uij[1],
-            self.action_i: uij[3],
-            self.action_t: uij[4],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
             self.sl: uij[5],
             self.is_training: False,
         })
         res2 = sess.run(self.eval_logits, feed_dict={
             self.u: uij[0],
             self.i: uij[2],
-            self.action_i: uij[3],
-            self.action_t: uij[4],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
             self.sl: uij[5],
             self.is_training: False,
         })
@@ -217,23 +207,23 @@ class Model(object):
         res1, att_1, stt_1 = sess.run([self.eval_logits, self.att, self.stt], feed_dict={
             self.u: uij[0],
             self.i: uij[1],
-            self.action_i: uij[3],
-            self.action_t: uij[4],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
             self.sl: uij[5],
             self.is_training: False,
         })
         res2, att_2, stt_2 = sess.run([self.eval_logits, self.att, self.stt], feed_dict={
             self.u: uij[0],
             self.i: uij[2],
-            self.action_i: uij[3],
-            self.action_t: uij[4],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
             self.sl: uij[5],
             self.is_training: False,
         })
         return res1, res2, att_1, stt_1, att_2, stt_1
 
     def save(self, sess):
-        checkpoint_path = os.path.join(self.config['model_dir'], 'bisie_mask')
+        checkpoint_path = os.path.join(self.config['model_dir'], 'atrank')
         #print(self.global_step)
         saver = tf.train.Saver()
         save_path = saver.save(
@@ -290,9 +280,9 @@ def attention_net(enc, sl, dec, num_units, num_heads, num_blocks, dropout_rate, 
                     dec = feedforward(dec,
                                       num_units=[num_units // 4, num_units],
                                       scope="feed_forward", reuse=reuse)
-        # 此处怀疑有错误，非常重要
+
         dec = tf.reshape(dec, [-1, num_units])
-        return dec
+        return dec, att_vec, stt_vec
 
 
 def multihead_attention(queries,
@@ -458,5 +448,4 @@ def extract_axis_1(data, ind):
     indices = tf.stack([batch_range, ind], axis=1)
     res = tf.gather_nd(data, indices)
     return res
-
 
