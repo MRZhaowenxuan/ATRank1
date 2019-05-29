@@ -65,8 +65,6 @@ random.shuffle(train_set)
 random.shuffle(test_set)
 print(len(train_set))
 print(len(test_set))
-print(train_set[100])
-print(test_set[50])
 #print(test_set)
 #assert len(test_set) == user_count
 #assert(len(test_set) + len(train_set) // 2 == reviews_df.shape[0])

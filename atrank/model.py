@@ -202,6 +202,30 @@ class Model(object):
             self.is_training: False,
         })
         return np.mean(res1 - res2 > 0)
+    def eval_test(self,sess,uij):
+        res1 = sess.run(self.eval_logits, feed_dict={
+            self.u: uij[0],
+            self.i: uij[1],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
+            self.sl: uij[5],
+            self.is_training: False,
+        })
+        res1=np.reshape(res1, (res1.size, -1))
+        pos_label = np.ones(res1.size)
+        res1 = np.insert(res1, 1, pos_label, axis=1)
+        res2 = sess.run(self.eval_logits, feed_dict={
+            self.u: uij[0],
+            self.i: uij[2],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
+            self.sl: uij[5],
+            self.is_training: False,
+        })
+        res2 = np.reshape(res2, (res2.size, -1))
+        neg_label = np.zeros(res2.size)
+        res2 = np.insert(res2, 1, neg_label, axis=1)
+        return np.concatenate((res1,res2),axis=0)
 
     def test(self, sess, uij):
         res1, att_1, stt_1 = sess.run([self.eval_logits, self.att, self.stt], feed_dict={
