@@ -9,8 +9,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
-from atrank.input import DataInput,DataInputTest
-from atrank.model import Model
+from BisIE_mask.input import DataInput, DataInputTest
+from BisIE_mask.model import Model
 
 random.seed(1234)
 np.random.seed(1234)
@@ -18,9 +18,9 @@ tf.set_random_seed(1234)
 
 # Network parameters
 tf.app.flags.DEFINE_integer('hidden_units', 128, 'Number of hidden units in each layer')
-tf.app.flags.DEFINE_integer('num_blocks', 1, 'Number of blocks in each attention')
+tf.app.flags.DEFINE_integer('num_blocks', 2, 'Number of blocks in each attention')
 tf.app.flags.DEFINE_integer('num_heads', 8, 'Number of heads in each attention')
-tf.app.flags.DEFINE_float('dropout', 0.0, 'Dropout probability(0.0: no dropout)')
+tf.app.flags.DEFINE_float('dropout', 0.5, 'Dropout probability(0.0: no dropout)')
 tf.app.flags.DEFINE_float('regulation_rate', 0.00005, 'L2 regulation rate')
 
 tf.app.flags.DEFINE_integer('itemid_embedding_size', 64, 'Item id embedding size')
@@ -32,7 +32,7 @@ tf.app.flags.DEFINE_boolean('concat_time_emb', True, 'Concat time-embedding inst
 tf.app.flags.DEFINE_boolean('from_scratch', True, 'Romove model_dir, and train from scratch, default: False')
 tf.app.flags.DEFINE_string('model_dir', 'save_path', 'Path to save model checkpoints')
 #随机梯度下降sgd
-tf.app.flags.DEFINE_string('optimizer', 'sgd', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
+tf.app.flags.DEFINE_string('optimizer', 'adam_blocks2_adam_dropout0.5_lr0.1_decay0.8', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
 tf.app.flags.DEFINE_float('learning_rate', 0.1, 'Learning rate')
 #最大梯度渐变到5
 tf.app.flags.DEFINE_float('max_gradient_norm', 5.0, 'Clip gradients to this norm')
@@ -41,10 +41,10 @@ tf.app.flags.DEFINE_integer('train_batch_size', 200, 'Training Batch size')
 #测试批次128
 tf.app.flags.DEFINE_integer('test_batch_size', 100, 'Testing Batch size')
 #最大迭代次数
-tf.app.flags.DEFINE_integer('max_epochs', 10, 'Maximum # of training epochs')
+tf.app.flags.DEFINE_integer('max_epochs', 100, 'Maximum # of training epochs')
 #每100个批次的训练状态
-tf.app.flags.DEFINE_integer('display_freq', 5, 'Display training status every this iteration')
-tf.app.flags.DEFINE_integer('eval_freq', 5, 'Display training status every this iteration')
+tf.app.flags.DEFINE_integer('display_freq', 100, 'Display training status every this iteration')
+tf.app.flags.DEFINE_integer('eval_freq', 100, 'Display training status every this iteration')
 
 # Runtime parameters
 tf.app.flags.DEFINE_string('cuda_visible_devices', '0', 'Choice which GPU to use')
@@ -194,15 +194,15 @@ def train():
                         best_auc = test_auc
                         model.save(sess)
 
-                    if model.global_step.eval() == 336000:
-                        lr = 0.1
+                    #if model.global_step.eval() == 336000:
+                    lr = 0.8
 
             print('Epoch %d DONE\tCost time: %.2f' %
                   (model.global_epoch_step.eval(), time.time() - start_time),
                   flush=True)
             model.global_epoch_step_op.eval()
     model.save(sess)
-    with open('result.pkl', 'wb') as f:
+    with open('result_dropout0.2_adam.pkl', 'wb') as f:
         pickle.dump(result, f, pickle.HIGHEST_PROTOCOL)
     print('best test_auc:', best_auc)
     print('Finished', flush=True)
