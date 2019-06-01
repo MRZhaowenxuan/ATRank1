@@ -30,9 +30,9 @@ tf.app.flags.DEFINE_boolean('concat_time_emb', True, 'Concat time-embedding inst
 
 # Training parameters
 tf.app.flags.DEFINE_boolean('from_scratch', True, 'Romove model_dir, and train from scratch, default: False')
-tf.app.flags.DEFINE_string('model_dir', 'save_path', 'Path to save model checkpoints')
+tf.app.flags.DEFINE_string('model_dir', 'adam_blocks2_adam_dropout0.5_lr0.1_decay0.8', 'Path to save model checkpoints')
 #随机梯度下降sgd
-tf.app.flags.DEFINE_string('optimizer', 'adam_blocks2_adam_dropout0.5_lr0.1_decay0.8', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
+tf.app.flags.DEFINE_string('optimizer', 'adam', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
 tf.app.flags.DEFINE_float('learning_rate', 0.1, 'Learning rate')
 #最大梯度渐变到5
 tf.app.flags.DEFINE_float('max_gradient_norm', 5.0, 'Clip gradients to this norm')
