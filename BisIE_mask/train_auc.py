@@ -30,10 +30,10 @@ tf.app.flags.DEFINE_boolean('concat_time_emb', True, 'Concat time-embedding inst
 
 # Training parameters
 tf.app.flags.DEFINE_boolean('from_scratch', True, 'Romove model_dir, and train from scratch, default: False')
-tf.app.flags.DEFINE_string('model_dir', 'adam_blocks2_adam_dropout0.5_lr0.1_decay0.8', 'Path to save model checkpoints')
+tf.app.flags.DEFINE_string('model_dir', 'bisIE_adam_blocks2_adam_dropout0.5_lr0.001_decay0.95_v1', 'Path to save model checkpoints')
 #随机梯度下降sgd
 tf.app.flags.DEFINE_string('optimizer', 'adam', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
-tf.app.flags.DEFINE_float('learning_rate', 0.1, 'Learning rate')
+tf.app.flags.DEFINE_float('learning_rate', 0.001, 'Learning rate')
 #最大梯度渐变到5
 tf.app.flags.DEFINE_float('max_gradient_norm', 5.0, 'Clip gradients to this norm')
 #训练批次32
@@ -41,10 +41,11 @@ tf.app.flags.DEFINE_integer('train_batch_size', 200, 'Training Batch size')
 #测试批次128
 tf.app.flags.DEFINE_integer('test_batch_size', 100, 'Testing Batch size')
 #最大迭代次数
-tf.app.flags.DEFINE_integer('max_epochs', 100, 'Maximum # of training epochs')
+tf.app.flags.DEFINE_integer('max_epochs', 50, 'Maximum # of training epochs')
 #每100个批次的训练状态
-tf.app.flags.DEFINE_integer('display_freq', 100, 'Display training status every this iteration')
-tf.app.flags.DEFINE_integer('eval_freq', 100, 'Display training status every this iteration')
+tf.app.flags.DEFINE_integer('display_freq', 10, 'Display training status every this iteration')
+tf.app.flags.DEFINE_integer('eval_freq', 10, 'Display training status every this iteration')
+
 
 # Runtime parameters
 tf.app.flags.DEFINE_string('cuda_visible_devices', '0', 'Choice which GPU to use')
@@ -103,7 +104,7 @@ def _eval_auc(sess, test_set, model):
 
   model.eval_writer.add_summary(
       summary=tf.Summary(
-          value=[tf.Summary.Value(tag='Eval AUC', simple_value=test_auc)]),
+          value=[tf.Summary.Value(tag='New Eval AUC', simple_value=test_auc)]),
       global_step=model.global_step.eval())
 
   return test_auc
@@ -194,8 +195,16 @@ def train():
                         best_auc = test_auc
                         model.save(sess)
 
-                    #if model.global_step.eval() == 336000:
-                    lr = 0.8
+
+            if model.global_epoch_step.eval() <2000:
+                lr = 0.95*lr
+
+            #pirnt for every epoch
+            test_auc = _eval(sess, test_set, model)
+            test_auc_new = _eval_auc(sess, test_set, model)
+            print('Epoch %d Global_step %d\tEval_AUC: %.4f, new %.4f' %
+                  (model.global_epoch_step.eval(), model.global_step.eval(), test_auc, test_auc_new),
+                  flush=True)
 
             print('Epoch %d DONE\tCost time: %.2f' %
                   (model.global_epoch_step.eval(), time.time() - start_time),
