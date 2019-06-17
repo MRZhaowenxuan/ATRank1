@@ -33,15 +33,18 @@ def _eval(sess, model):
   if best_auc < test_auc:
     best_auc = test_auc
     model.save(sess, 'save_path/ckpt')
+  model.eval_writer.add_summary(
+    summary=tf.Summary(
+      value=[tf.Summary.Value(tag='Eval AUC', simple_value=test_auc)]),
+    global_step=model.global_step.eval())
   return test_auc
 
 def _eval_auc(sess, test_set, model):
   auc_input = []
   auc_input = np.reshape(auc_input,(-1,2))
   for _, uij in DataInputTest(test_set, test_batch_size):
-    #auc_sum += model.eval(sess, uij) * len(uij[0])
     auc_input = np.concatenate((auc_input,model.eval_test(sess,uij)))
-  #test_auc = auc_sum / len(test_set)
+
   test_auc = roc_auc_score(auc_input[:,1],auc_input[:,0])
 
   model.eval_writer.add_summary(
@@ -51,6 +54,8 @@ def _eval_auc(sess, test_set, model):
 
   return test_auc
 
+
+
 gpu_options = tf.GPUOptions(allow_growth=True)
 with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
 
@@ -58,8 +63,7 @@ with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
   sess.run(tf.global_variables_initializer())
   sess.run(tf.local_variables_initializer())
 
-  print('test_auc: %.4f,new:%.4f' % (_eval(sess, model), _eval_auc(sess, test_set, model)))
-
+  print('test_auc: %.4f' % _eval(sess, model))
 
   lr = 1.0
   start_time = time.time()
@@ -75,9 +79,10 @@ with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
 
       if model.global_step.eval() % 1000 == 0:
         test_auc = _eval(sess, model)
-        print('Epoch %d Global_step %d\tTrain_loss: %.4f\tEval_AUC: %.4f,new:%.4f' %
+        test_auc_new = _eval_auc(sess, test_set, model)
+        print('Epoch %d Global_step %d\tTrain_loss: %.4f\tEval_AUC: %.4f,,new %.4f' %
               (model.global_epoch_step.eval(), model.global_step.eval(),
-               loss_sum / 1000, test_auc, _eval_auc(sess, test_set, model)),
+               loss_sum / 1000, test_auc,test_auc_new),
               flush=True)
         loss_sum = 0.0
 

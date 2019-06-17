@@ -1,5 +1,6 @@
 import random
 import pickle
+import numpy as np
 
 random.seed(1234)
 
@@ -8,8 +9,6 @@ with open('../raw_data/remap.pkl', 'rb') as f:
   cate_list = pickle.load(f)
   user_count, item_count, cate_count, example_count = pickle.load(f)
 
-data_set_pos = []
-data_set_neg = []
 train_set = []
 test_set = []
 for reviewerID, hist in reviews_df.groupby('reviewerID'):
@@ -20,31 +19,24 @@ for reviewerID, hist in reviews_df.groupby('reviewerID'):
       neg = random.randint(0, item_count-1)
     return neg
   neg_list = [gen_neg() for i in range(len(pos_list))]
+  rid_list = [reviewerID for i in range(len(pos_list))]
+  hist = list(zip(rid_list, pos_list, neg_list))
 
-  for i in range(1, len(pos_list)):
-    hist = pos_list[:i]
-    if i != len(pos_list) - 1:
-      data_set_pos.append((reviewerID, hist, pos_list[i], 1))
-      data_set_neg.append((reviewerID, hist, neg_list[i], 0))
-    # else:
-    #   label = (pos_list[i], neg_list[i])
-    #   test_set.append((reviewerID, hist, label))
-
-for i in range(len(data_set_pos)):
-  if i % 5 == 0:
-    reviewerID = data_set_pos[i][0]
-    hist = data_set_pos[i][1]
-    label = (data_set_pos[i][2], data_set_neg[i][2])
-    test_set.append((reviewerID, hist, label))
-  else:
-    train_set.append(data_set_pos[i])
-    train_set.append(data_set_neg[i])
+  print(len(hist))
+  train_set.extend(hist[:-1])
+  test_set.append(hist[-1])
 
 random.shuffle(train_set)
 random.shuffle(test_set)
 
-#assert len(test_set) == user_count
-# assert(len(test_set) + len(train_set) // 2 == reviews_df.shape[0])
+assert len(test_set) == user_count
+assert len(test_set) + len(train_set) == example_count
+
+train_set = np.array(train_set, dtype=np.int32)
+test_set = np.array(test_set, dtype=np.int32)
+
+print(len(train_set))
+print(len(test_set))
 
 with open('dataset.pkl', 'wb') as f:
   pickle.dump(train_set, f, pickle.HIGHEST_PROTOCOL)

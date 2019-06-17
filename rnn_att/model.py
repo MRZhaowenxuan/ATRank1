@@ -9,6 +9,8 @@ class Model(object):
 
   def __init__(self, user_count, item_count, cate_count, cate_list):
 
+    self.eval_writer = tf.summary.FileWriter('save_path' + '/eval')
+
     self.u = tf.placeholder(tf.int32, [None,]) # [B]
     self.i = tf.placeholder(tf.int32, [None,]) # [B]
     self.j = tf.placeholder(tf.int32, [None,]) # [B]
@@ -122,20 +124,20 @@ class Model(object):
     return u_auc
 
   def eval_test(self, sess, uij):
-      res1 = sess.run(self.mf_auc, feed_dict={
+      res1 = sess.run(self.logits, feed_dict={
           self.u: uij[0],
           self.i: uij[1],
           self.hist_i: uij[3],
-          self.sl: uij[4],
+          self.sl: uij[4]
       })
       res1 = np.reshape(res1, (res1.size, -1))
       pos_label = np.ones(res1.size)
       res1 = np.insert(res1, 1, pos_label, axis=1)
-      res2 = sess.run(self.mf_auc, feed_dict={
+      res2 = sess.run(self.logits, feed_dict={
           self.u: uij[0],
           self.i: uij[2],
           self.hist_i: uij[3],
-          self.sl: uij[4],
+          self.sl: uij[4]
       })
       res2 = np.reshape(res2, (res2.size, -1))
       neg_label = np.zeros(res2.size)
