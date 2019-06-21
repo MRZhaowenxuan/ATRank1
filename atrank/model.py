@@ -72,16 +72,17 @@ class Model(object):
             tf.nn.embedding_lookup(cate_emb_w, tf.gather(cate_list, self.hist_i)),
         ], 2)
 
+        if self.config['time_emb'] == True:
+            if self.config['concat_time_emb'] == True:
+                t_emb = tf.one_hot(self.hist_t, 12, dtype=tf.float32)
+                h_emb = tf.concat([h_emb, t_emb], -1)
+                h_emb = tf.layers.dense(h_emb, self.config['hidden_units'])
+            else:
+                t_emb = tf.layers.dense(tf.expand_dims(self.hist_t, -1),
+                                        self.config['hidden_units'],
+                                        activation=tf.nn.tanh)
+                h_emb += t_emb
 
-        if self.config['concat_time_emb'] == True:
-            t_emb = tf.one_hot(self.hist_t, 12, dtype=tf.float32)
-            h_emb = tf.concat([h_emb, t_emb], -1)
-            h_emb = tf.layers.dense(h_emb, self.config['hidden_units'])
-        else:
-            t_emb = tf.layers.dense(tf.expand_dims(self.hist_t, -1),
-                                    self.config['hidden_units'],
-                                    activation=tf.nn.tanh)
-            h_emb += t_emb
 
         num_blocks = self.config['num_blocks']
         num_heads = self.config['num_heads']
@@ -128,7 +129,7 @@ class Model(object):
             tf.summary.histogram('embedding/1_item_emb', item_emb_w),
             tf.summary.histogram('embedding/2_cate_emb', cate_emb_w),
             tf.summary.histogram('embedding/3_time_raw', self.hist_t),
-            tf.summary.histogram('embedding/3_time_dense', t_emb),
+            # tf.summary.histogram('embedding/3_time_dense', t_emb),
             tf.summary.histogram('embedding/4_final', h_emb),
             tf.summary.histogram('attention_output', u_emb),
             tf.summary.scalar('L2_norm Loss', l2_norm),
