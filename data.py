@@ -15,14 +15,14 @@ action0 = 0
 action1 = 0
 action2 = 0
 action3 = 0
-for action in action_list:
-    if action == 0:
+for action in reviews_df['item_id']:
+    if action_list[action] == 0:
         action0 += 1
-    if action == 1:
+    if action_list[action] == 1:
         action1 += 1
-    if action == 2:
+    if action_list[action] == 2:
         action2 += 1
-    if action == 3:
+    if action_list[action] == 3:
         action3 += 1
 
-print('action0:%d,action1:%d,action2:%d,action3:%d' % (action0, action1, action2, action3))
+print('click:%d,add-to-cart:%d,purchase:%d,add-to-favourite:%d' % (action0, action1, action2, action3))
