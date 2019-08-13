@@ -27,9 +27,9 @@ def build_map(df, col_name):
 
 
 item_map, item_key = build_map(meta_df, 'item_id')
-print('1:', meta_df)
+# print('1:', meta_df)
 cat_map, cat_key = build_map(meta_df, 'cat_id')
-print('2:', meta_df)
+# print('2:', meta_df)
 # print('item_map:\n', item_map, '\nitem_key:\n', item_key)
 
 item_map_action, item_key_action = build_map(meta_df_action, 'item_id')
@@ -58,10 +58,10 @@ reviews_df = reviews_df.sort_values(['user_id', 'time_stamp'])
 reviews_df = reviews_df.reset_index(drop=True)
 reviews_df = reviews_df[['user_id', 'item_id', 'time_stamp']]
 
-print(meta_df['cat_id'])
+# print(meta_df['cat_id'])
 cate_list = [meta_df['cat_id'][i] for i in range(len(item_map))]
 cate_list = np.array(cate_list, dtype=np.int32)
-print(cate_list)
+# print(cate_list)
 
 action_list = [meta_df_action['action_type'][i] for i in range(len(item_map_action))]
 action_list = np.array(action_list, dtype=np.int32)

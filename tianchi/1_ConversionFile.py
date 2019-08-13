@@ -11,8 +11,6 @@ for row in reader:
         continue
     json.dump(row, jsonfile)
     jsonfile.write('\n')
-    if i == 1000:
-        break
     i += 1
 
 jsonfile.close()

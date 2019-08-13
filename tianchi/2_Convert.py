@@ -9,6 +9,9 @@ def to_df(file_path):
       df[i] = eval(line)
       # print("第%d条"%i)
       # print(df[i])
+      #i == 11000
+      if i== 8000:
+          break
       i += 1
     # 把json数据转换成列表式的数据
     df = pd.DataFrame.from_dict(df, orient='index')
