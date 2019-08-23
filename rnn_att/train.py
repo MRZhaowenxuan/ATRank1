@@ -6,8 +6,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
-from rnn_att.input import DataInput, DataInputTest
-from rnn_att.model import Model
+from input import DataInput, DataInputTest
+from model import Model
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 random.seed(1234)

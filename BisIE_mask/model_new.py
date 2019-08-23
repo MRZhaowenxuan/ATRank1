@@ -72,7 +72,9 @@ class Model(object):
         #i_emb=(?,128),item_emb_w=(item_count,64),cate_emb_w=(cate_count,64)
         i_emb = tf.concat([
             tf.nn.embedding_lookup(item_emb_w, self.i),
+            tf.nn.embedding_lookup(action_emb_w, tf.gather(action_list, self.action_i)),
             tf.nn.embedding_lookup(cate_emb_w, tf.gather(cate_list, self.i)),
+            tf.one_hot([0], 13, dtype=tf.float32)
         ], 1)
 
         i_b = tf.gather(item_b, self.i)
@@ -85,7 +87,7 @@ class Model(object):
 
 
         if self.config['concat_time_emb'] == True:
-            t_emb = tf.one_hot(self.action_t, 12, dtype=tf.float32)
+            t_emb = tf.one_hot(self.action_t, 13, dtype=tf.float32)
             action_emb = tf.concat([action_emb, t_emb], -1)
             # 此处代码需要更新Use keras.layers.dense instead.
             action_emb = tf.layers.dense(action_emb, self.config['hidden_units'])

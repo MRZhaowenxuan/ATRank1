@@ -3,8 +3,8 @@ import pickle
 import numpy as np
 import tensorflow as tf
 
-from bpr.input import DataInput
-from bpr.model import Model
+from input import DataInput
+from model import Model
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 np.random.seed(1234)

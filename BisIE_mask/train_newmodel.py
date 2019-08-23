@@ -1,6 +1,5 @@
 import os
 import time
-import json
 import pickle
 import random
 from collections import OrderedDict
@@ -9,23 +8,23 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
-from BisIE_mask.input import DataInput, DataInputTest
-from BisIE_mask.model_new import Model
+from input import DataInput, DataInputTest
+from model_new import Model
 
 random.seed(1234)
 np.random.seed(1234)
 tf.set_random_seed(1234)
 
 # Network parameters
-tf.app.flags.DEFINE_integer('hidden_units', 128, 'Number of hidden units in each layer')
-tf.app.flags.DEFINE_integer('num_blocks', 2, 'Number of blocks in each attention')
+tf.app.flags.DEFINE_integer('hidden_units', 64, 'Number of hidden units in each layer')
+tf.app.flags.DEFINE_integer('num_blocks', 1, 'Number of blocks in each attention')
 tf.app.flags.DEFINE_integer('num_heads', 8, 'Number of heads in each attention')
 tf.app.flags.DEFINE_float('dropout', 0.5, 'Dropout probability(0.0: no dropout)')
 tf.app.flags.DEFINE_float('regulation_rate', 0.00005, 'L2 regulation rate')
 
-tf.app.flags.DEFINE_integer('itemid_embedding_size', 64, 'Item id embedding size')
-tf.app.flags.DEFINE_integer('cateid_embedding_size', 64, 'Cate id embedding size')
-tf.app.flags.DEFINE_integer('actionid_embedding_size', 64, 'Action id embedding size')
+tf.app.flags.DEFINE_integer('itemid_embedding_size', 32, 'Item id embedding size')
+tf.app.flags.DEFINE_integer('cateid_embedding_size', 32, 'Cate id embedding size')
+tf.app.flags.DEFINE_integer('actionid_embedding_size', 32, 'Action id embedding size')
 
 tf.app.flags.DEFINE_boolean('concat_time_emb', True, 'Concat time-embedding instead of Add')
 
@@ -123,12 +122,12 @@ def train():
     print('Loading data.....', flush=True)
     with open('../tianchi/dataset.pkl', 'rb') as f:
         train_set = pickle.load(f)
-        # print(train_set)
         test_set = pickle.load(f)
         cate_list = pickle.load(f)
         action_list = pickle.load(f)
-        # print(cate_list)
+        print(cate_list)
         user_count, item_count, cate_count, action_count = pickle.load(f)
+        print(user_count, item_count, cate_count, action_count)
 
 
     # Config GPU options
@@ -144,12 +143,15 @@ def train():
 
     # Build Config
     config = OrderedDict(sorted(FLAGS.__flags.items()))
-    for k, v in config.items():
-      config[k] = v.value
+
+    # for k, v in config.items():
+    #   config[k] = v.value
+    print(config)
+
     config['user_count'] = user_count
     config['item_count'] = item_count
     config['cate_count'] = cate_count
-    config['action_count'] = 4
+    config['action_count'] = action_count + 1
 
     # Initiate TF session
     # with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
@@ -190,13 +192,16 @@ def train():
                     # print('test_auc:%.4f,best_auc:%.4f'%(test_auc, best_auc))
                     print('Epoch %d Global_step %d\tTrain_loss: %.4f\tEval_AUC: %.4f, new %.4f' %
                     (model.global_epoch_step.eval(), model.global_step.eval(),
-                     avg_loss / FLAGS.eval_freq, test_auc,test_auc_new),
+                     avg_loss / FLAGS.eval_freq, test_auc, test_auc_new),
                     flush=True)
                     result.append((model.global_epoch_step.eval(), model.global_step.eval(), avg_loss / FLAGS.eval_freq, _eval(sess, test_set, model), _eval_auc(sess, test_set, model)))
                     avg_loss = 0.0
 
-                    if test_auc > 0.88 and test_auc > best_auc:
-                        best_auc = test_auc
+                    # if test_auc > 0.88 and test_auc > best_auc:
+                    #     best_auc = test_auc
+                    #     model.save(sess)
+                    if test_auc_new > 0.88 and test_auc_new > best_auc:
+                        best_auc = test_auc_new
                         model.save(sess)
 
 

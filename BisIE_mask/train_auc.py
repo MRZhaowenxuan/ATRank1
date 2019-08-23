@@ -9,8 +9,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
-from BisIE_mask.input import DataInput, DataInputTest
-from BisIE_mask.model import Model
+from input import DataInput, DataInputTest
+from model import Model
 
 random.seed(1234)
 np.random.seed(1234)

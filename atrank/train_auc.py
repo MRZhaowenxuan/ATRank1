@@ -9,8 +9,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
-from atrank.input import DataInput,DataInputTest
-from atrank.model import Model
+from input import DataInput,DataInputTest
+from model import Model
 
 random.seed(1234)
 np.random.seed(1234)
@@ -141,8 +141,9 @@ def train():
 
     # Build Config
     config = OrderedDict(sorted(FLAGS.__flags.items()))
-    for k, v in config.items():
-      config[k] = v.value
+    # for k, v in config.items():
+    #   config[k] = v.value
+    print(config)
     config['user_count'] = user_count
     config['item_count'] = item_count
     config['cate_count'] = cate_count
