@@ -259,6 +259,36 @@ class Model(object):
             self.is_training: False,
         })
         return res1, res2, att_1, stt_1, att_2, stt_1
+    def eval_test(self,sess,uij):
+        res1 = sess.run(self.eval_logits, feed_dict={
+            self.u: uij[0],
+            self.i: uij[1],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
+            self.sl_h: uij[5],
+            self.is_training: False,
+            self.sl_f: uij[8],
+            self.fut_i: uij[6],
+            self.fut_t: uij[7],
+        })
+        res1=np.reshape(res1, (res1.size, -1))
+        pos_label = np.ones(res1.size)
+        res1 = np.insert(res1, 1, pos_label, axis=1)
+        res2 = sess.run(self.eval_logits, feed_dict={
+            self.u: uij[0],
+            self.i: uij[2],
+            self.hist_i: uij[3],
+            self.hist_t: uij[4],
+            self.sl_h: uij[5],
+            self.is_training: False,
+            self.sl_f: uij[8],
+            self.fut_i: uij[6],
+            self.fut_t: uij[7],
+        })
+        res2 = np.reshape(res2, (res2.size, -1))
+        neg_label = np.zeros(res2.size)
+        res2 = np.insert(res2, 1, neg_label, axis=1)
+        return np.concatenate((res1,res2),axis=0)
 
     def save(self, sess):
         checkpoint_path = os.path.join(self.config['model_dir'], 'bisie')

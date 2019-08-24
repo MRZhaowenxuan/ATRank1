@@ -22,7 +22,7 @@ for reviewerID, hist in reviews_df.groupby('reviewerID'):
   rid_list = [reviewerID for i in range(len(pos_list))]
   hist = list(zip(rid_list, pos_list, neg_list))
 
-  print(len(hist))
+  # print(len(hist))
   train_set.extend(hist[:-1])
   test_set.append(hist[-1])
 

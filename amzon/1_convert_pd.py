@@ -10,8 +10,8 @@ def to_df(file_path):
       # print("第%d条"%i)
       # print(df[i])
       i += 1
-      if i == 50000:
-        break
+      # if i == 1000:
+      #   break
 
     # print("df：")
     # 把json数据转换成列表式的数据

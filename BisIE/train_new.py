@@ -9,31 +9,30 @@ import tensorflow as tf
 from sklearn.metrics import roc_auc_score
 
 from input import DataInput, DataInputTest
-from model_new import Model
+from model import Model
 
 random.seed(1234)
 np.random.seed(1234)
 tf.set_random_seed(1234)
 
 # Network parameters
-tf.app.flags.DEFINE_integer('hidden_units', 64, 'Number of hidden units in each layer')
-tf.app.flags.DEFINE_integer('num_blocks', 1, 'Number of blocks in each attention')
+tf.app.flags.DEFINE_integer('hidden_units', 128, 'Number of hidden units in each layer')
+tf.app.flags.DEFINE_integer('num_blocks', 2, 'Number of blocks in each attention')
 tf.app.flags.DEFINE_integer('num_heads', 8, 'Number of heads in each attention')
 tf.app.flags.DEFINE_float('dropout', 0.5, 'Dropout probability(0.0: no dropout)')
 tf.app.flags.DEFINE_float('regulation_rate', 0.00005, 'L2 regulation rate')
 
-tf.app.flags.DEFINE_integer('itemid_embedding_size', 32, 'Item id embedding size')
-tf.app.flags.DEFINE_integer('cateid_embedding_size', 32, 'Cate id embedding size')
-tf.app.flags.DEFINE_integer('actionid_embedding_size', 32, 'Action id embedding size')
+tf.app.flags.DEFINE_integer('itemid_embedding_size', 64, 'Item id embedding size')
+tf.app.flags.DEFINE_integer('cateid_embedding_size', 64, 'Cate id embedding size')
 
 tf.app.flags.DEFINE_boolean('concat_time_emb', True, 'Concat time-embedding instead of Add')
 
 # Training parameters
 tf.app.flags.DEFINE_boolean('from_scratch', True, 'Romove model_dir, and train from scratch, default: False')
-tf.app.flags.DEFINE_string('model_dir', 'bisIE_adam_blocks2_adam_dropout0.5_lr0.0001_decay0.9998_newdata_2_newmodel', 'Path to save model checkpoints')
+tf.app.flags.DEFINE_string('model_dir', 'bisIE_adam_blocks2_adam_dropout0.5_lr0.001_decay0.95_newdata', 'Path to save model checkpoints')
 #随机梯度下降sgd
 tf.app.flags.DEFINE_string('optimizer', 'adam', 'Optimizer for training: (adadelta, adam, rmsprop,sgd*)')
-tf.app.flags.DEFINE_float('learning_rate', 0.0001, 'Learning rate')
+tf.app.flags.DEFINE_float('learning_rate', 0.001, 'Learning rate')
 #最大梯度渐变到5
 tf.app.flags.DEFINE_float('max_gradient_norm', 5.0, 'Clip gradients to this norm')
 #训练批次32
@@ -54,10 +53,10 @@ tf.app.flags.DEFINE_float('per_process_gpu_memory_fraction', 0.0, 'Gpu memory us
 
 FLAGS = tf.app.flags.FLAGS
 
-def create_model(sess, config, cate_list, action_list):
+def create_model(sess,config,cate_list):
 
     # print(json.dumps(config,indent=4),flush=True)
-    model = Model(config, cate_list, action_list)
+    model = Model(config,cate_list)
 
     print('All global variables:')
     for v in tf.global_variables():
@@ -119,16 +118,14 @@ def train():
         tf.gfile.MakeDirs(FLAGS.model_dir)
 
     # Loading data
-    print('Loading data.....', flush=True)
-    with open('../tianchi/dataset.pkl', 'rb') as f:
+    print('Loading data.....',flush=True)
+    with open('../BisIE/tianchi/dataset.pkl','rb') as f:
         train_set = pickle.load(f)
+        # print(train_set)
         test_set = pickle.load(f)
         cate_list = pickle.load(f)
-        action_list = pickle.load(f)
-        print(cate_list)
-        user_count, item_count, cate_count, action_count = pickle.load(f)
-        print(user_count, item_count, cate_count, action_count)
-
+        # print(cate_list)
+        user_count,item_count,cate_count = pickle.load(f)
 
     # Config GPU options
     if FLAGS.per_process_gpu_memory_fraction == 0.0:
@@ -143,15 +140,12 @@ def train():
 
     # Build Config
     config = OrderedDict(sorted(FLAGS.__flags.items()))
-
     # for k, v in config.items():
     #   config[k] = v.value
-    print(config)
-
+    print(config.items())
     config['user_count'] = user_count
     config['item_count'] = item_count
     config['cate_count'] = cate_count
-    config['action_count'] = action_count + 1
 
     # Initiate TF session
     # with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
@@ -159,7 +153,7 @@ def train():
     with sess.as_default():
 
         # Create a new model or reload existing checkpoint
-        model = create_model(sess, config, cate_list, action_list)
+        model = create_model(sess, config, cate_list)
         print('Init finish.\tCost time: %.2fs' % (time.time() - start_time),
               flush=True)
 
@@ -192,24 +186,18 @@ def train():
                     # print('test_auc:%.4f,best_auc:%.4f'%(test_auc, best_auc))
                     print('Epoch %d Global_step %d\tTrain_loss: %.4f\tEval_AUC: %.4f, new %.4f' %
                     (model.global_epoch_step.eval(), model.global_step.eval(),
-                     avg_loss / FLAGS.eval_freq, test_auc, test_auc_new),
+                     avg_loss / FLAGS.eval_freq, test_auc,test_auc_new),
                     flush=True)
                     result.append((model.global_epoch_step.eval(), model.global_step.eval(), avg_loss / FLAGS.eval_freq, _eval(sess, test_set, model), _eval_auc(sess, test_set, model)))
                     avg_loss = 0.0
 
-                    # if test_auc > 0.88 and test_auc > best_auc:
-                    #     best_auc = test_auc
-                    #     model.save(sess)
-                    if test_auc_new > 0.88 and test_auc_new > best_auc:
-                        best_auc = test_auc_new
+                    if test_auc > 0.88 and test_auc > best_auc:
+                        best_auc = test_auc
                         model.save(sess)
 
 
-            # if model.global_epoch_step.eval() <2000:
-            #     lr = 0.95*lr
-
-            if model.global_epoch_step.eval() % 5:
-                lr = lr*0.9998
+            if model.global_epoch_step.eval() <2000:
+                lr = 0.95*lr
 
             #pirnt for every epoch
             test_auc = _eval(sess, test_set, model)
