@@ -2,6 +2,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 
+#进行修改测试
 with open('../shop_data/remap.pkl', 'rb') as f:
   reviews_df = pickle.load(f)
   cate_list = pickle.load(f)
