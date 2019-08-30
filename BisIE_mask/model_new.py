@@ -77,6 +77,8 @@ class Model(object):
             tf.one_hot([0], 13, dtype=tf.float32)
         ], 1)
 
+        i_emb = tf.layers.dense(i_emb, self.config['hidden_units'])
+
         i_b = tf.gather(item_b, self.i)
 
         action_emb = tf.concat([
