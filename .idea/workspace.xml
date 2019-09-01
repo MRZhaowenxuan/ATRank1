@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d485870d-2d3a-40bf-99fa-9655903bc653" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BisIE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BisIE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,67 +14,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1288609752">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="txt" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="3" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BisIE_mask/build_dataset.py">
+        <entry file="file://$PROJECT_DIR$/BisIE_mask/model_new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BisIE_mask/2_remap_id.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BisIE_mask/1_convert_pd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BisIE_mask/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="2132">
+              <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -79,10 +29,61 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BisIE_mask/input.py">
+        <entry file="file://$PROJECT_DIR$/BisIE_mask_prc/build_dataset_az.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2400">
-              <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
+            <state relative-caret-position="1950">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BisIE_mask_prc/train_new.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2886">
+              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/amzon/1_convert_pd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/amzon/2_remap_id.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1248">
+              <caret line="50" column="62" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BisIE_mask/train_new.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2886">
+              <caret line="122" column="48" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BisIE_mask/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="104">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -107,6 +108,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>save</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -125,13 +131,40 @@
         <option value="$PROJECT_DIR$/BisIE_mask/train.py" />
         <option value="$PROJECT_DIR$/BisIE_mask/input.py" />
         <option value="$PROJECT_DIR$/BisIE_mask/model.py" />
+        <option value="$PROJECT_DIR$/atrank/train_auc.py" />
+        <option value="$PROJECT_DIR$/bpr/train.py" />
+        <option value="$PROJECT_DIR$/rnn_att/train.py" />
+        <option value="$PROJECT_DIR$/BisIE/trian.py" />
+        <option value="$PROJECT_DIR$/BisIE/train_auc.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask/train_auc.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask/train_newmodel.py" />
+        <option value="$PROJECT_DIR$/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/tianchi/build_dataset_atrank.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/atrank/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/BisIE/train.py" />
+        <option value="$PROJECT_DIR$/BisIE/3_build_dataset.py" />
+        <option value="$PROJECT_DIR$/bpr/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/rnn_att/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/BisIE/tianchi/build_dataset.py" />
+        <option value="$PROJECT_DIR$/atrank/train_new.py" />
+        <option value="$PROJECT_DIR$/BisIE/train_new.py" />
+        <option value="$PROJECT_DIR$/bpr/train_new.py" />
+        <option value="$PROJECT_DIR$/rnn_att/train_new.py" />
+        <option value="$PROJECT_DIR$/amzon/1_convert_pd.py" />
+        <option value="$PROJECT_DIR$/tianchi/2_Convert.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask/train_new.py" />
+        <option value="$PROJECT_DIR$/word2vector/test.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask/model_new.py" />
+        <option value="$PROJECT_DIR$/BisIE_mask_prc/train_new.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="799" />
+    <option name="x" value="19" />
+    <option name="y" value="70" />
+    <option name="width" value="1366" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -142,8 +175,18 @@
         <subPane>
           <expand>
             <path>
-              <item name="atrank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atrank" type="462c0819:PsiDirectoryNode" />
+              <item name="ATRank1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ATRank1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ATRank1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ATRank1" type="462c0819:PsiDirectoryNode" />
+              <item name="amzon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ATRank1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ATRank1" type="462c0819:PsiDirectoryNode" />
+              <item name="BisIE_mask_prc" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -156,15 +199,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\实验项目代码\论文实验\atrank\tianchi" />
-      <recent name="$PROJECT_DIR$/BisIE_mask" />
+      <recent name="$PROJECT_DIR$/BisIE_mask_prc" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/amzon" />
+      <recent name="$PROJECT_DIR$/rnn_att" />
+      <recent name="$PROJECT_DIR$/rnn_att/tianchi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -179,29 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.trian">
-    <configuration name="1_convert_pd" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="BisIE" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/atrank" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/atrank/1_convert_pd.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.test">
     <configuration name="2_remap_id" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BisIE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -237,7 +266,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BisIE_mask/build_dataset.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BisIE_mask/build_dataset_az.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BisIE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/word2vector" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/word2vector/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -291,19 +342,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.1_convert_pd" />
       <item itemvalue="Python.2_remap_id" />
       <item itemvalue="Python.build_dataset" />
       <item itemvalue="Python.train (1)" />
       <item itemvalue="Python.trian" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.trian" />
         <item itemvalue="Python.train (1)" />
         <item itemvalue="Python.build_dataset" />
         <item itemvalue="Python.2_remap_id" />
-        <item itemvalue="Python.1_convert_pd" />
       </list>
     </recent_temporary>
   </component>
@@ -319,6 +370,25 @@
       <updated>1558098340181</updated>
       <workItem from="1558098347341" duration="354000" />
       <workItem from="1558139701989" duration="9532000" />
+      <workItem from="1565687651897" duration="7000" />
+      <workItem from="1565826686351" duration="146000" />
+      <workItem from="1566099948308" duration="2704000" />
+      <workItem from="1566389277023" duration="2622000" />
+      <workItem from="1566566459828" duration="197000" />
+      <workItem from="1566614635657" duration="81000" />
+      <workItem from="1566630804298" duration="6777000" />
+      <workItem from="1566647214510" duration="45000" />
+      <workItem from="1566992353694" duration="203000" />
+      <workItem from="1566992768424" duration="373000" />
+      <workItem from="1567046785560" duration="37000" />
+      <workItem from="1567056045735" duration="148000" />
+      <workItem from="1567056350364" duration="19000" />
+      <workItem from="1567072571460" duration="1764000" />
+      <workItem from="1567154585719" duration="1504000" />
+      <workItem from="1567166137434" duration="166000" />
+      <workItem from="1567212862439" duration="982000" />
+      <workItem from="1567221564223" duration="1474000" />
+      <workItem from="1567301565197" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="2019/6/27">
       <created>1561598068443</created>
@@ -327,27 +397,69 @@
       <option name="project" value="LOCAL" />
       <updated>1561598068443</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2019/8/14">
+      <created>1565826817486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565826817486</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2019/8/23">
+      <created>1566566548083</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566566548083</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2019/8/24">
+      <created>1566614701330</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566614701330</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2019/8/24">
+      <created>1566647244811</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566647244811</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2019/8/30 zhaowenxuan">
+      <created>1567164197155</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567164197155</updated>
+    </task>
+    <task id="LOCAL-00007" summary="2019/8/31 zhaowenxuan">
+      <created>1567213426513</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567213426513</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9886000" />
+    <option name="totallyTimeSpent" value="29155000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="19" y="70" width="1366" height="745" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16369048" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24924472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4511526" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.87705815" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.54267514" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="11" />
@@ -385,35 +497,31 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2019/5/17" />
     <MESSAGE value="2019/6/27" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019/6/27" />
+    <MESSAGE value="2019/8/14" />
+    <MESSAGE value="2019/8/23" />
+    <MESSAGE value="2019/8/24" />
+    <MESSAGE value="2019/8/30 zhaowenxuan" />
+    <MESSAGE value="2019/8/31 zhaowenxuan" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019/8/31 zhaowenxuan" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BIsIE$build_dataset.coverage" NAME="build_dataset Coverage Results" MODIFIED="1558232563251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BisIE_mask" />
-    <SUITE FILE_PATH="coverage/BIsIE$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1558271885081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BisIE_mask" />
-    <SUITE FILE_PATH="coverage/BIsIE$train.coverage" NAME="train Coverage Results" MODIFIED="1558228875294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
-    <SUITE FILE_PATH="coverage/BIsIE$test.coverage" NAME="test Coverage Results" MODIFIED="1558232061991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BIsIE$2_remap_id.coverage" NAME="2_remap_id Coverage Results" MODIFIED="1558232530733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
+    <SUITE FILE_PATH="coverage/BIsIE$test.coverage" NAME="test Coverage Results" MODIFIED="1558232061991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BIsIE$trian.coverage" NAME="trian Coverage Results" MODIFIED="1558272152935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BisIE" />
-    <SUITE FILE_PATH="coverage/BIsIE$build_dataset__1_.coverage" NAME="build_dataset (1) Coverage Results" MODIFIED="1558228865448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
+    <SUITE FILE_PATH="coverage/ATRank1$test.coverage" NAME="test Coverage Results" MODIFIED="1566645184722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/word2vector" />
+    <SUITE FILE_PATH="coverage/BIsIE$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1558271885081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BisIE_mask" />
     <SUITE FILE_PATH="coverage/BIsIE$1_convert_pd.coverage" NAME="1_convert_pd Coverage Results" MODIFIED="1558232522195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
+    <SUITE FILE_PATH="coverage/BIsIE$build_dataset.coverage" NAME="build_dataset Coverage Results" MODIFIED="1558232563251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BisIE_mask" />
+    <SUITE FILE_PATH="coverage/BIsIE$train.coverage" NAME="train Coverage Results" MODIFIED="1558228875294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
+    <SUITE FILE_PATH="coverage/BIsIE$build_dataset__1_.coverage" NAME="build_dataset (1) Coverage Results" MODIFIED="1558228865448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/atrank" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/raw_data/meta_Electronics.json" />
     <entry file="file://$PROJECT_DIR$/BisIE/input.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BisIE/trian.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/atrank/model.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -422,6 +530,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/atrank/1_convert_pd.py" />
+    <entry file="file://$PROJECT_DIR$/../.conda/envs/BisIE(mrzhao)/lib/python3.7/site-packages/tensorflow/python/framework/ops.py" />
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2496">
+          <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/1_convert_pd.py" />
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/2_remap_id.py" />
+    <entry file="file://$PROJECT_DIR$/BisIE/trian.py" />
     <entry file="file://$PROJECT_DIR$/BisIE/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -429,18 +550,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/atrank/1_convert_pd.py">
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state relative-caret-position="10140">
+          <caret line="393" column="25" lean-forward="true" selection-start-line="393" selection-start-column="25" selection-end-line="393" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../.conda/envs/BisIE(mrzhao)/lib/python3.7/site-packages/tensorflow/python/framework/ops.py" />
-    <entry file="file://$PROJECT_DIR$/BisIE_mask/build_dataset.py">
+    <entry file="file://$PROJECT_DIR$/tianchi/build_dataset.py" />
+    <entry file="file://$PROJECT_DIR$/tianchi/1_ConversionFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
+        <state>
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tianchi/build_dataset_atrank.py" />
+    <entry file="file://$PROJECT_DIR$/atrank/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2218">
+          <caret line="31" column="93" lean-forward="true" selection-start-line="31" selection-start-column="93" selection-end-line="31" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnn_att/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnn_att/build_dataset_az.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpr/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1472" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpr/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-390">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/build_dataset_az.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1924">
           <caret line="74" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -448,7 +635,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BisIE_mask/2_remap_id.py">
+    <entry file="file://$PROJECT_DIR$/atrank/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnn_att/tianchi/build_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpr/tianchi/build_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="121" column="23" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpr/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rnn_att/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tianchi/3_Remap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -457,7 +704,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BisIE_mask/1_convert_pd.py">
+    <entry file="file://$PROJECT_DIR$/tianchi/2_Convert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE/tianchi/build_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE/build_dataset_az.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2080">
+          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word2vector/test.py" />
+    <entry file="file://$PROJECT_DIR$/rnn_att/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4264">
+          <caret line="169" column="23" selection-start-line="169" selection-start-column="23" selection-end-line="169" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atrank/build_dataset_az.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -466,29 +745,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BisIE_mask/input.py">
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/tianchi/build_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2400">
-          <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
+        <state relative-caret-position="533">
+          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atrank/tianchi/build_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="46" column="63" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/model_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2132">
+          <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask_prc/build_dataset_az.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask_prc/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2886">
+          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amzon/2_remap_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="50" column="62" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BisIE_mask/train_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2886">
+          <caret line="122" column="48" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BisIE_mask/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="104">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BisIE_mask/model.py">
+    <entry file="file://$PROJECT_DIR$/amzon/1_convert_pd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="149">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
