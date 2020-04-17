@@ -14,8 +14,8 @@ class DataInput:
     if self.i == self.epoch_size:
       raise StopIteration
 
-    t = self.data[self.i * self.batch_size : min((self.i+1) * self.batch_size,
-                                                 self.data.shape[0])]
+    t = self.data[self.i * self.batch_size: min((self.i+1) * self.batch_size,
+                                                self.data.shape[0])]
     self.i += 1
 
     return self.i, t
